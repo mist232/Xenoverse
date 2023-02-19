@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Babylon Template</title>
+
+    <style>
+      html,
+      body {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #renderCanvas {
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+    </style>
+
+    <script src="https://cdn.babylonjs.com/babylon.js"></script> 
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script> -->
+    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script> 
+    <!-- <script src="/node_modules/babylonjs-inspector/babylon.inspector.bundle.js"></script>  -->
+
+    
+   
+  </head>
+
+  <body>
+    <canvas id="renderCanvas" touch-action="none"></canvas>
+    <!-- touch-action="none" for best results from PEP -->
+
+    <script>
+      const canvas = document.getElementById("renderCanvas"); 
+      const engine = new BABYLON.Engine(canvas, true); 
+
+      var createScene = function () {
+    var scene = new BABYLON.Scene(engine);
+    var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 2,  Math.PI / 2, 5, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, true);
+	
+	var light = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
+
+
+	
+	// WALL
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=16;
+y.position.z=-24;
+y.scaling.x=4.8;
+y.scaling.y=3.2;
+y.scaling.z=0.01;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=24;
+y.position.y=16;
+y.position.z=-0.4;
+y.scaling.x=4.8;
+y.scaling.y=3.2;
+y.scaling.z=0.01;
+y.rotation.y=11;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=16;
+y.position.z=24;
+y.scaling.x=4.8;
+y.scaling.y=3.2;
+y.scaling.z=0.01;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/shopgate.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=0;
+y.position.z=22;
+y.scaling.x=3;
+y.scaling.y=3;
+y.scaling.z=3;
+y.rotation.y=-11;
+//y.rotation.z=11;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-24;
+y.position.y=16;
+y.position.z=-0.4;
+y.scaling.x=4.8;
+y.scaling.y=3.2;
+y.scaling.z=0.01;
+y.rotation.y=11;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=31.6;
+y.position.z=0;
+y.scaling.x=4.8;
+y.scaling.y=4.6;
+y.scaling.z=0.01;
+y.rotation.x=-11;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-20;
+y.position.y=31.6;
+y.position.z=0;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=20;
+y.position.y=31.6;
+y.position.z=0;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-20;
+y.position.y=31.6;
+y.position.z=20;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=20;
+y.position.y=31.6;
+y.position.z=20;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-20;
+y.position.y=31.3;
+y.position.z=-20;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=20;
+y.position.y=31.3;
+y.position.z=-20;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=31.3;
+y.position.z=20;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=31.3;
+y.position.z=-20;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+camera.target=y;});
+
+//PAINTING
+BABYLON.SceneLoader.ImportMesh("", "/painting_1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=5;
+y.position.z=-23.92;
+y.position.y=15;
+y.scaling.x=4;
+y.scaling.y=710;
+y.scaling.z=5;
+y.rotation.x=-11;
+});
+BABYLON.SceneLoader.ImportMesh("", "/painting_2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=16;
+y.position.z=-23.92;
+y.position.y=19;
+y.scaling.x=4;
+y.scaling.y=20;
+y.scaling.z=8;
+y.rotation.x=-11;
+});
+
+BABYLON.SceneLoader.ImportMesh("", "/painting_3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16;
+y.position.z=-23.92;
+y.position.y=12;
+y.scaling.x=4;
+y.scaling.y=20;
+y.scaling.z=8;
+y.rotation.x=-11;
+});
+
+BABYLON.SceneLoader.ImportMesh("", "/painting_4.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-5;
+y.position.z=-23.92;
+y.position.y=20;
+y.scaling.x=4;
+y.scaling.y=10;
+y.scaling.z=5;
+y.rotation.x=-11;
+});
+BABYLON.SceneLoader.ImportMesh("", "/painting_5.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=23.6;
+y.position.z=-6;
+y.position.y=17;
+y.scaling.x=4;
+y.scaling.y=10;
+y.scaling.z=5;
+y.rotation.x=-11;
+y.rotation.y=-11;
+});
+BABYLON.SceneLoader.ImportMesh("", "/painting_6.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=23.6;
+y.position.z=10;
+y.position.y=22;
+y.scaling.x=4;
+y.scaling.y=10;
+y.scaling.z=5;
+y.rotation.x=-11;
+y.rotation.y=-11;
+});
+
+BABYLON.SceneLoader.ImportMesh("", "/painting_7.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-23.6;
+y.position.z=-6;
+y.position.y=17;
+y.scaling.x=4;
+y.scaling.y=10;
+y.scaling.z=5;
+y.rotation.x=-11;
+y.rotation.y=-11;
+});
+BABYLON.SceneLoader.ImportMesh("", "/painting_8.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-23.6;
+y.position.z=10;
+y.position.y=22;
+y.scaling.x=4;
+y.scaling.y=10;
+y.scaling.z=5;
+y.rotation.x=-11;
+y.rotation.y=-11;
+});
+//FLOOR
+  BABYLON.SceneLoader.ImportMesh("", "/floorshopfinal.glb", "", scene, function (newMeshes) {
+
+        var y=newMeshes[0];
+
+        y.scaling.x=2;
+        y.scaling.y=2;
+        y.scaling.z=2;
+        camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/Evita SP36.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=7.5;
+y.position.z=0;
+y.scaling.x=12;
+y.scaling.y=8;
+y.scaling.z=12;
+camera.target=y;});
+//GUITARS
+BABYLON.SceneLoader.ImportMesh("", "/guitar3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-17;
+y.position.y=0.6;
+y.position.z=-3.1;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/guitar3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-17;
+y.position.y=0.6;
+y.position.z=-4.3;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/guitar3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-17;
+y.position.y=0.6;
+y.position.z=-5.5;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/guitar3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-17;
+y.position.y=0.6;
+y.position.z=-6.7;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+y.rotation.y=45.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/guitar3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-17;
+y.position.y=0.6;
+y.position.z=-7.9;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+y.rotation.y=45.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/guitar3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-17;
+y.position.y=0.6;
+y.position.z=-9.1;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/guitar3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-17;
+y.position.y=0.6;
+y.position.z=-10.2;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+y.rotation.y=45.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/guitar1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.8;
+y.position.y=0.1;
+y.position.z=-2;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/guitar1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.8;
+y.position.y=0.1;
+y.position.z=-1;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/guitar1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.8;
+y.position.y=0.1;
+y.position.z=0;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/guitar1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.8;
+y.position.y=0.1;
+y.position.z=1;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/guitar1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.8;
+y.position.y=0.1;
+y.position.z=2;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/guitar1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.8;
+y.position.y=0.1;
+y.position.z=3;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/guitar1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.8;
+y.position.y=0.1;
+y.position.z=4;
+y.scaling.x=1.8;
+y.scaling.y=1.8;
+y.scaling.z=1.8;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/gu.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.7;
+y.position.y=-0.4;
+y.position.z=6;
+y.scaling.x=0.2;
+y.scaling.y=0.2;
+y.scaling.z=0.2;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/gu.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.7;
+y.position.y=-0.4;
+y.position.z=7;
+y.scaling.x=0.2;
+y.scaling.y=0.2;
+y.scaling.z=0.2;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/gu.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.7;
+y.position.y=-0.4;
+y.position.z=8;
+y.scaling.x=0.2;
+y.scaling.y=0.2;
+y.scaling.z=0.2;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/gu.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.7;
+y.position.y=-0.4;
+y.position.z=9;
+y.scaling.x=0.2;
+y.scaling.y=0.2;
+y.scaling.z=0.2;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/gu.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.7;
+y.position.y=-0.4;
+y.position.z=10;
+y.scaling.x=0.2;
+y.scaling.y=0.2;
+y.scaling.z=0.2;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/gu.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.7;
+y.position.y=-0.4;
+y.position.z=11;
+y.scaling.x=0.2;
+y.scaling.y=0.2;
+y.scaling.z=0.2;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/gu.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.7;
+y.position.y=-0.4;
+y.position.z=12;
+y.scaling.x=0.2;
+y.scaling.y=0.2;
+y.scaling.z=0.2;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=10;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=8.5;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=7;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/cello3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=5.5;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=4;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=2.5;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=1;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=-0.5;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/cello2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=-2;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=-3.5;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello4.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=-5;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello4.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=-6.5;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello4.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=-8;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello4.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=-9.5;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/cello4.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=18.7;
+y.position.y=1.2;
+y.position.z=-11;
+y.scaling.x=0.8;
+y.scaling.y=0.8;
+y.scaling.z=0.8;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+
+
+BABYLON.SceneLoader.ImportMesh("", "/grandpiano2.glb", "", scene, function (newMeshes) {
+  var y=newMeshes[0];
+  y.position.x=-10.7;
+y.position.z=-11;
+y.scaling.x=1.9;
+y.scaling.y=1.9;
+y.scaling.z=1.9;
+y.rotation.y=45.6;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/grandpiano2.glb", "", scene, function (newMeshes) {
+  var y=newMeshes[0];
+  y.position.x=-5.7;
+y.position.z=-11;
+y.scaling.x=1.9;
+y.scaling.y=1.9;
+y.scaling.z=1.9;
+y.rotation.y=45.6;
+
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/piano3.glb", "", scene, function (newMeshes) {
+  var y=newMeshes[0];
+  y.position.x=-0.7;
+y.position.z=-11;
+y.scaling.x=1.9;
+y.scaling.y=1.9;
+y.scaling.z=1.9;
+y.rotation.y=45.6;
+
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/piano3.glb", "", scene, function (newMeshes) {
+  var y=newMeshes[0];
+  y.position.x=4;
+y.position.z=-11;
+y.scaling.x=1.9;
+y.scaling.y=1.9;
+y.scaling.z=1.9;
+y.rotation.y=45.6;
+
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/pianosilver.glb", "", scene, function (newMeshes) {
+  var y=newMeshes[0];
+  y.position.x=9;
+y.position.z=-11;
+y.scaling.x=1.9;
+y.scaling.y=1.9;
+y.scaling.z=1.9;
+y.rotation.y=45.6;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/pianosilver.glb", "", scene, function (newMeshes) {
+  var y=newMeshes[0];
+  y.position.x=14;
+y.position.z=-11;
+y.scaling.x=1.9;
+y.scaling.y=1.9;
+y.scaling.z=1.9;
+y.rotation.y=45.6;
+
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/drum.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-16.7;
+y.position.z=14;
+y.scaling.x=2;
+y.scaling.y=2;
+y.scaling.z=2;
+y.rotation.y=-45.5;
+camera.target=y;});
+
+
+BABYLON.SceneLoader.ImportMesh("", "/drum.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=17.7;
+y.position.z=14;
+y.scaling.x=2;
+y.scaling.y=2;
+y.scaling.z=2;
+y.rotation.y=-45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/accordium.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-13.5;
+y.position.y=-0.4;
+y.position.z=-2;
+y.scaling.x=3.5;
+y.scaling.y=3.5;
+y.scaling.z=3.5;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/accordium.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-13.5;
+y.position.y=-0.4;
+y.position.z=-6;
+y.scaling.x=3.5;
+y.scaling.y=3.5;
+y.scaling.z=3.5;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/accordium.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-13.5;
+y.position.y=-0.4;
+y.position.z=5;
+y.scaling.x=3.5;
+y.scaling.y=3.5;
+y.scaling.z=3.5;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/accordium.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-13.5;
+y.position.y=-0.4;
+y.position.z=9;
+y.scaling.x=3.5;
+y.scaling.y=3.5;
+y.scaling.z=3.5;
+y.rotation.y=45.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/accordium.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-13.5;
+y.position.y=-0.4;
+y.position.z=1.5;
+y.scaling.x=3.5;
+y.scaling.y=3.5;
+y.scaling.z=3.5;
+y.rotation.y=45.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/tableflute.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=13.7;
+y.position.z=-2;
+y.position.y=0.6;
+y.rotation.y=-45.6;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/tabletrumpet.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=13.5;
+y.position.z=7;
+y.position.y=-0.2;
+y.rotation.y=45.5;
+y.scaling.x=2.7;
+y.scaling.y=2.7;
+y.scaling.z=2.7;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=15;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=13;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=11;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=9;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=7;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=5;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=3;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=1;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-1;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-3;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-5;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-7;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-9;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-11;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-13;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-15;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-17;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=22;
+y.position.z=-19;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-19;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-17;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-15;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-13;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-11;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-9;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-7;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-5;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-3;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=-1;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=1;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=3;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=5;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=7;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=9;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=11;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=13;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/plant.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-21;
+y.position.z=15;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+y.scaling.x=0.5;
+y.scaling.y=0.5;
+y.scaling.z=0.5;
+camera.target=y;});
+//DUMMY
+BABYLON.SceneLoader.ImportMesh("", "/musiciandummy1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-10;
+y.position.z=15;
+y.position.y=-0.6;
+y.scaling.x=2;
+y.scaling.y=2;
+y.scaling.z=2;
+//y.position.y=0.5;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/musiciandummy2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=10;
+y.position.z=15;
+y.position.y=-0.6;
+y.scaling.x=2;
+y.scaling.y=2;
+y.scaling.z=2;
+y.rotation.y=44.4;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/decortree.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=11.7;
+y.position.z=-18.5
+y.scaling.x=2.5;
+y.scaling.y=2.5;
+y.scaling.z=2.5;;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/decortree.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=16.7;
+y.position.z=-18.5
+y.scaling.x=2.5;
+y.scaling.y=2.5;
+y.scaling.z=2.5;;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/decortree.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=6.7;
+y.position.z=-18.5
+y.scaling.x=2.5;
+y.scaling.y=2.5;
+y.scaling.z=2.5;;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/decortree.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=1.7;
+y.position.z=-18.5
+y.scaling.x=2.5;
+y.scaling.y=2.5;
+y.scaling.z=2.5;;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/decortree.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-3.7;
+y.position.z=-18.5
+y.scaling.x=2.5;
+y.scaling.y=2.5;
+y.scaling.z=2.5;;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/decortree.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-8.7;
+y.position.z=-18.5
+y.scaling.x=2.5;
+y.scaling.y=2.5;
+y.scaling.z=2.5;;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/decortree.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-13.7;
+y.position.z=-18.5
+y.scaling.x=2.5;
+y.scaling.y=2.5;
+y.scaling.z=2.5;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/decorcarpet.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-0;
+y.position.z=3;
+y.scaling.x=2.5;
+y.scaling.y=2.5;
+y.scaling.z=2.5;
+y.scaling.x=3;
+y.scaling.y=3;
+y.scaling.z=3;
+//y.position.y=0.5;
+y.rotation.y=45.5;
+camera.target=y;});
+
+scene.debugLayer.show({
+        embedMode: true,
+    });
+        scene.useRightHandedSystem = true;
+        return scene;
+      };
+
+      const scene = createScene(); 
+
+      // Register a render loop to repeatedly render the sceneimage.png
+      engine.runRenderLoop(function () {
+        scene.render();
+      });
+
+      // Watch for browser/canvas resize events
+      window.addEventListener("resize", function () {
+        engine.resize();
+      });
+    </script>
+  </body>
+</html>

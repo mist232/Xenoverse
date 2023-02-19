@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Babylon Template</title>
+
+    <style>
+      html,
+      body {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #renderCanvas {
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+    </style>
+
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+  </head>
+
+  <body>
+    <canvas id="renderCanvas" touch-action="none"></canvas>
+    <!-- touch-action="none" for best results from PEP -->
+
+    <script>
+      const canvas = document.getElementById("renderCanvas"); // Get the canvas element
+      const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+
+      // Add your code here matching the playground format
+      const createScene = function () {
+        const scene = new BABYLON.Scene(engine);
+      //  scene.gravity = new BABYLON.Vector3(0, -0.9, 0);
+        scene.debugLayer.show({ embedMode: true,});
+    
+          
+        const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 15, new BABYLON.Vector3(0, 0, 2));
+       camera.attachControl(canvas, true);
+        const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
+        
+    var light2 = new BABYLON.HemisphericLight("dir01", new BABYLON.Vector3(0, 5, 0), scene);
+ 
+    light2.position = new BABYLON.Vector3(0, 5, 5);
+         
+        // BACKGROUND
+	var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:1000.0}, scene);
+	var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+	skyboxMaterial.backFaceCulling = false;
+	skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("/s/s", scene);
+	skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+	skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+	skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+	skybox.material = skyboxMaterial;		
+       ////
+     
+
+        //Domes
+       
+
+
+        BABYLON.SceneLoader.ImportMesh("", "/tyrefinaldome.glb", "", scene, function (newMeshes) {
+               var dome1 = newMeshes[0];
+               dome1.position.y = 1.58;  
+               dome1.position.x = 8;
+               dome1.position.z = -3;         
+               dome1.scaling = new BABYLON.Vector3(2,2,2);
+               dome1.rotate.x = Math.PI;
+        });
+
+        BABYLON.SceneLoader.ImportMesh("", "/tyrefinaldome.glb", "", scene, function (newMeshes) {
+               var dome2 = newMeshes[0];
+               dome2.position.y = 1.58;
+               dome2.position.z = 10;           
+               dome2.scaling = new BABYLON.Vector3(2,2,2);
+               dome2.rotate.x = Math.PI;
+        });
+
+
+        BABYLON.SceneLoader.ImportMesh("", "/tyrefinaldome.glb", "", scene, function (newMeshes) {
+               var dome3 = newMeshes[0];
+               dome3.position.y = 1.58;  
+               dome3.position.x = -8;
+               dome3.position.z = -3;         
+               dome3.scaling = new BABYLON.Vector3(2,2,2);
+               dome3.rotate.x = Math.PI;
+               
+        });
+
+
+
+        
+        BABYLON.SceneLoader.ImportMesh("", "/tyrefinaldome.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 1.58;  
+               dome4.position.x = -8;
+               dome4.position.z = 6;         
+               dome4.scaling = new BABYLON.Vector3(2,2,2);
+              
+        });
+
+
+        BABYLON.SceneLoader.ImportMesh("", "/tyrefinaldome.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 1.58;  
+               dome4.position.x = 8;
+               dome4.position.z = 6;         
+               dome4.scaling = new BABYLON.Vector3(2,2,2);
+              
+        });
+        BABYLON.SceneLoader.ImportMesh("", "/untitled.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 1.9;  
+               dome4.position.x = 4.2;
+               dome4.position.z = 9;
+               dome4.rotation = new BABYLON.Vector3(0,69.5,0);
+
+               //dome4.scaling = new BABYLON.Vector3(2,2,2);
+              
+        });
+        BABYLON.SceneLoader.ImportMesh("", "/untitled.glb", "", scene, function (newMeshes) {
+               var dome6 = newMeshes[0];
+               dome6.position.y = 1.9;  
+               dome6.position.x = 8;
+               dome6.position.z = 2;
+               dome6.rotation = new BABYLON.Vector3(0,Math.PI/2,0);
+        });
+        BABYLON.SceneLoader.ImportMesh("", "/untitled.glb", "", scene, function (newMeshes) {
+               var dome6 = newMeshes[0];
+               dome6.position.y = 1.9;  
+               dome6.position.x = -8;
+               dome6.position.z = 2;
+               dome6.rotation = new BABYLON.Vector3(0,-Math.PI/2,0);
+        });
+        BABYLON.SceneLoader.ImportMesh("", "/untitled.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 1.9;  
+               dome4.position.x = -4.5;
+               dome4.position.z = 9;
+               dome4.rotation = new BABYLON.Vector3(0,-69.5,0);
+              
+        });
+        BABYLON.SceneLoader.ImportMesh("", "/spaceshippad.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 2.1;  
+               dome4.position.x = 0;
+               dome4.position.z = 0.5;
+               dome4.scaling.x=2;
+               dome4.scaling.z=2;
+               dome4.rotation = new BABYLON.Vector3(0,69.5,-12.56);
+  })
+        //fountain
+        BABYLON.SceneLoader.ImportMesh("", "/FOUNTAIN.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 2.1;  
+               dome4.position.x = -7;
+               dome4.position.z = -10;
+  dome4.scaling.x=0.8
+  dome4.scaling.y=0.8;
+  dome4.scaling.z=0.8;
+               dome4.rotation = new BABYLON.Vector3(0,-69.5,-12.56);
+               })
+               BABYLON.SceneLoader.ImportMesh("", "/FOUNTAIN.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 2.1;  
+               dome4.position.x = 12;
+               dome4.position.z = -10;
+  dome4.scaling.x=0.8
+  dome4.scaling.y=0.8;
+  dome4.scaling.z=0.8;
+               dome4.rotation = new BABYLON.Vector3(0,-69.5,-12.56);
+               })
+
+//ROAD
+
+               BABYLON.SceneLoader.ImportMesh("", "/spaceshiproad.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 2.09;  
+               dome4.position.x = 0;
+               dome4.position.z = 1;
+  dome4.scaling.x=1;
+  dome4.scaling.y=1;
+  dome4.scaling.z=1;
+              dome4.rotation = new BABYLON.Vector3(0,-69.5,-12.56);
+           
+               })
+               BABYLON.SceneLoader.ImportMesh("", "/spaceshiproad.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 2.09;  
+               dome4.position.x = 6;
+               dome4.position.z = -1.8;
+  dome4.scaling.x=1;
+  dome4.scaling.y=1;
+  dome4.scaling.z=1;
+              dome4.rotation = new BABYLON.Vector3(0,69.5,-12.56);
+           
+               })
+               BABYLON.SceneLoader.ImportMesh("", "/spaceshiproad.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 2.1;  
+               dome4.position.x = 7;
+               dome4.position.z = 5;
+  dome4.scaling.x=1;
+  dome4.scaling.y=1;
+  dome4.scaling.z=1;
+              dome4.rotation = new BABYLON.Vector3(0,-69.7,-12.56);
+           
+               })
+               BABYLON.SceneLoader.ImportMesh("", "/spaceshiproad.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 2.09;  
+               dome4.position.x = -1;
+               dome4.position.z =1;
+  dome4.scaling.x=1;
+  dome4.scaling.y=1;
+  dome4.scaling.z=1;
+              dome4.rotation = new BABYLON.Vector3(0,69.7,-12.56);
+           
+               })
+               BABYLON.SceneLoader.ImportMesh("", "/spaceshiproad.glb", "", scene, function (newMeshes) {
+               var dome4 = newMeshes[0];
+               dome4.position.y = 2.09;  
+               dome4.position.x = 0.4;
+               dome4.position.z = 0;
+  dome4.scaling.x=1;
+  dome4.scaling.y=1;
+  dome4.scaling.z=1;
+              dome4.rotation = new BABYLON.Vector3(0,89.5,0);
+           
+               })
+        //SPACESHIP ANIMATION
+
+       BABYLON.SceneLoader.ImportMesh("", "/SPACESHIPFIRST.glb", "", scene, function (newMeshes) {
+        scene.stopAllAnimations();
+               var dome6 = newMeshes[0];
+             //  dome6.loop=false;
+               dome6.position.y = -2.5;  
+               dome6.position.x = -4;
+               dome6.position.z = -13.6;
+               dome6.rotation= new BABYLON.Vector3(0,360,0);
+               var anim = scene.animationGroups[0].start(false);
+      console.log(anim)
+      animatables = anim.animatables;
+       });
+               //
+
+
+
+        //Ground
+
+        BABYLON.SceneLoader.ImportMesh("", "/hpground.glb", "", scene, function (newMeshes) {
+               var dome1 = newMeshes[0];
+               dome1.position.y = 2;  
+              dome1.scaling = new BABYLON.Vector3(1.5,1.5,1.5);    
+        
+        });
+        
+    // Create a particle system
+    var particleSystem = new BABYLON.ParticleSystem("particles", 90000, scene);
+//Texture of each particle
+var coneEmitter = new BABYLON.ConeParticleEmitter(5, 30);
+particleSystem.particleTexture = new BABYLON.Texture("flare.png", scene);
+var particleChar=BABYLON.MeshBuilder.CreateGround("ground", {width: -0.5, height: 0}, scene)
+particleChar.isVisible = false;
+particleChar.position.x=9.6;
+particleChar.position.y=4.8;
+particleChar.position.z=-11;
+// Where the particles come from    
+particleSystem.particleEmitterType = coneEmitter;
+    particleSystem.emitter= particleChar;
+particleSystem.isLocal = true;
+// Colors of all particles
+particleSystem.color1 = new BABYLON.Color4(0.7, 0.8, 1.0, 1.0);
+particleSystem.color2 = new BABYLON.Color4(0.2, 0.39, 1);
+particleSystem.colorDead = new BABYLON.Color4(0, 0, 0.2, 0.0);
+// Size of each particle (random between...
+particleSystem.minSize = 0.1;
+particleSystem.maxSize = 0.5;
+// Life time of each particle (random between...
+particleSystem.minLifeTime = 0.3;
+particleSystem.maxLifeTime = 1.5;
+// Emission rate
+particleSystem.emitRate = 3000;
+
+
+/******* Emission Space ********/
+
+// Speed
+particleSystem.minEmitPower = 2;
+particleSystem.maxEmitPower = 4;
+particleSystem.updateSpeed = 0.005;
+
+// Start the particle system
+particleSystem.start();
+var particleSystem = new BABYLON.ParticleSystem("particles", 90000, scene);
+//Texture of each particle
+var coneEmitter = new BABYLON.ConeParticleEmitter(5, 30);
+particleSystem.particleTexture = new BABYLON.Texture("flare.png", scene);
+var particleChar=BABYLON.MeshBuilder.CreateGround("ground", {width: -0.5, height: 0}, scene)
+particleChar.isVisible = false;
+particleChar.position.x=-9.3;
+particleChar.position.y=4.8;
+particleChar.position.z=-11;
+// Where the particles come from    
+particleSystem.particleEmitterType = coneEmitter;
+    particleSystem.emitter= particleChar;
+particleSystem.isLocal = true;
+// Colors of all particles
+particleSystem.color1 = new BABYLON.Color4(0.7, 0.8, 1.0, 1.0);
+particleSystem.color2 = new BABYLON.Color4(0.2, 0.39, 1);
+particleSystem.colorDead = new BABYLON.Color4(0, 0, 0.2, 0.0);
+// Size of each particle (random between...
+particleSystem.minSize = 0.1;
+particleSystem.maxSize = 0.5;
+// Life time of each particle (random between...
+particleSystem.minLifeTime = 0.3;
+particleSystem.maxLifeTime = 1.5;
+// Emission rate
+particleSystem.emitRate = 3000;
+
+
+/******* Emission Space ********/
+
+// Speed
+particleSystem.minEmitPower = 2;
+particleSystem.maxEmitPower = 4;
+particleSystem.updateSpeed = 0.005;
+
+// Start the particle system
+particleSystem.start();
+////////////
+        return scene;
+      };
+      //PARTICLE SYSTEM
+      
+
+      const scene = createScene(); //Call the createScene function
+
+      // Register a render loop to repeatedly render the scene
+      engine.runRenderLoop(function () {
+        scene.render();
+      });
+
+      // Watch for browser/canvas resize events
+      window.addEventListener("resize", function () {
+        engine.resize();
+      });
+    </script>
+  </body>
+</html>
