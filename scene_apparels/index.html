@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Babylon Template</title>
+
+    <style>
+      html,
+      body {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #renderCanvas {
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+    </style>
+
+    <script src="https://cdn.babylonjs.com/babylon.js"></script> 
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script> -->
+    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script> 
+    <!-- <script src="/node_modules/babylonjs-inspector/babylon.inspector.bundle.js"></script>  -->
+    
+   
+  </head>
+
+  <body>
+    <canvas id="renderCanvas" touch-action="none"></canvas>
+    <!-- touch-action="none" for best results from PEP -->
+
+    <script>
+  
+      const canvas = document.getElementById("renderCanvas"); 
+      const engine = new BABYLON.Engine(canvas, true); 
+
+      var createScene = function () {
+    var scene = new BABYLON.Scene(engine);
+    var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 2,  Math.PI / 2, 5, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, true);
+    BABYLON.SceneLoader.ImportMesh("", "/floorshopfinal.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+
+y.scaling.x=4.5;
+y.scaling.y=4.5;
+y.scaling.z=4.5;
+camera.target=y;});
+   
+	
+	var light = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
+
+/////
+
+	
+	// BACKGROUND
+/* BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=0;
+y.position.z=0;
+y.scaling.x=4.8;
+y.scaling.y=4.8;
+y.scaling.z=4.8;
+camera.target=y;});*/
+
+
+
+  BABYLON.SceneLoader.ImportMesh("", "/floorshopfinal.glb", "", scene, function (newMeshes) {
+
+        var y=newMeshes[0];
+
+        y.scaling.x=4.5;
+        y.scaling.y=4.5;
+        y.scaling.z=4.5;
+        camera.target=y;});
+//WALL
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=25;
+y.position.z=53.7;
+y.scaling.x=10.7;
+y.scaling.y=5;
+y.scaling.z=0.01;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=25;
+y.position.z=-53.7;
+y.scaling.x=10.7;
+y.scaling.y=5;
+y.scaling.z=0.01;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/shopgate.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=-0.5;
+y.position.z=-51;
+y.scaling.x=4;
+y.scaling.y=6;
+y.scaling.z=4;
+y.rotation.y=11;
+//y.rotation.z=11;
+camera.target=y;});
+//mosiac
+BABYLON.SceneLoader.ImportMesh("", "/frontwallcloth.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=25;
+y.position.z=53.7;
+y.scaling.x=10.7;
+y.scaling.y=5;
+y.scaling.z=0.01;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=53.7;
+y.position.y=25;
+y.position.z=0.7;
+y.scaling.x=10.7;
+y.scaling.y=5;
+y.scaling.z=0.01;
+y.rotation.y=11;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-53.7;
+y.position.y=25;
+y.position.z=0.7;
+y.scaling.x=10.7;
+y.scaling.y=5;
+y.scaling.z=0.01;
+y.rotation.y=11;
+camera.target=y;});
+BABYLON.SceneLoader.ImportMesh("", "/wallshop2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=50;
+y.position.z=0;
+y.scaling.x=10.7;
+y.scaling.y=11;
+y.scaling.z=0.01;
+y.rotation.x=-11;
+camera.target=y;});
+//CHANDELEIR
+BABYLON.SceneLoader.ImportMesh("", "/chandelier_1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=19;
+y.position.z=0;
+y.scaling.x=20;
+y.scaling.y=10;
+y.scaling.z=20;
+camera.target=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-45;
+y.position.y=50;
+y.position.z=50;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+y.rotation.y=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=45;
+y.position.y=50;
+y.position.z=50;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+y.rotation.y=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-45;
+y.position.y=49.7;
+y.position.z=-40;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+y.rotation.y=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=45;
+y.position.y=49.7;
+y.position.z=-40;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+y.rotation.y=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=45;
+y.position.y=49.7;
+y.position.z=-1;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+y.rotation.y=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-45;
+y.position.y=49.7;
+y.position.z=-1;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+y.rotation.y=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=49.7;
+y.position.z=50;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+y.rotation.y=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/lights_on.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=49.7;
+y.position.z=-50;
+y.scaling.x=1;
+y.scaling.y=1;
+y.scaling.z=1;
+y.rotation.y=-11;
+camera.target2=y;});
+
+BABYLON.SceneLoader.ImportMesh("", "/clotheswallpaper1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=53;
+y.position.y=20;
+y.position.z=-35;
+y.scaling.x=2.7;
+y.scaling.y=30;
+y.scaling.z=4;
+y.rotation.z=11;
+y.rotation.x=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/clotheswallpaper4.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=53;
+y.position.y=20;
+y.position.z=15;
+y.scaling.x=3;
+y.scaling.y=35;
+y.scaling.z=4;
+y.rotation.z=11;
+y.rotation.x=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/clotheswallpaper3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=53;
+y.position.y=29;
+y.position.z=-10.5;
+y.scaling.x=3;
+y.scaling.y=38;
+y.scaling.z=4;
+y.rotation.z=11;
+y.rotation.x=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/clotheswallpaper9.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=53;
+y.position.y=29;
+y.position.z=40;
+y.scaling.x=2.8;
+y.scaling.y=30;
+y.scaling.z=4;
+y.rotation.z=11;
+y.rotation.x=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/clotheswallpaper2.glb", "", scene, function (newMeshes) {
+var y=newMeshes[0];
+y.position.x=-53;
+y.position.y=20;
+y.position.z=-35;
+y.scaling.x=2.7;
+y.scaling.y=30;
+y.scaling.z=4;
+y.rotation.z=11;
+y.rotation.x=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/clotheswallpaper6.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-53;
+y.position.y=20;
+y.position.z=15;
+y.scaling.x=3;
+y.scaling.y=35;
+y.scaling.z=4;
+y.rotation.z=11;
+y.rotation.x=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/clotheswallpaper7.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-53;
+y.position.y=29;
+y.position.z=-10.5;
+y.scaling.x=3;
+y.scaling.y=38;
+y.scaling.z=4;
+y.rotation.z=11;
+y.rotation.x=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/clotheswallpaper10.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-53;
+y.position.y=29;
+y.position.z=40;
+y.scaling.x=2.8;
+y.scaling.y=30;
+y.scaling.z=4;
+y.rotation.z=11;
+y.rotation.x=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/clothshelf1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=40;
+y.position.y=0.3;
+y.position.z=48.4;
+y.scaling.x=4;
+y.scaling.y=3;
+y.scaling.z=5;
+//y.rotation.y=-3.1;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/clothshelf1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-45;
+y.position.y=0.3;
+y.position.z=48.4;
+y.scaling.x=4;
+y.scaling.y=3;
+y.scaling.z=5;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/clothshelf3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=49;
+y.position.y=1.8;
+y.position.z=35;
+y.scaling.x=4;
+y.scaling.y=8;
+y.scaling.z=5;
+//y.rotation.y=-3.1;
+y.rotation.y=-9.4;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/clothshelf3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-46.5;
+y.position.y=1.8;
+y.position.z=28;
+y.scaling.x=4;
+y.scaling.y=8;
+y.scaling.z=5;
+//y.rotation.y=-3.1;
+y.rotation.y=6.27;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/clothshelf4.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-46.5;
+y.position.y=1.8;
+y.position.z=15;
+y.scaling.x=4;
+y.scaling.y=8;
+y.scaling.z=5;
+//y.rotation.y=-3.1;
+y.rotation.y=6.27;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/clothshelf2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=48.8;
+y.position.y=1.8;
+y.position.z=22;
+y.scaling.x=4;
+y.scaling.y=8;
+y.scaling.z=5;
+//y.rotation.y=-3.1;
+y.rotation.y=-9.4;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/shopcarpet5.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=0;
+y.position.y=0.1;
+y.position.z=0.7;
+y.scaling.x=5.7;
+y.scaling.y=9.7;
+y.scaling.z=7;
+y.rotation.y=-11;
+camera.target2=y;});
+BABYLON.SceneLoader.ImportMesh("", "/hanging_garden1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=40;
+y.position.y=-0.5;
+y.position.z=22;
+y.scaling.x=0.1;
+y.scaling.y=0.1;
+y.scaling.z=0.1;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/hanging_gaeden_2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=35;
+y.position.y=8;
+y.position.z=-37;
+y.scaling.x=0.1;
+y.scaling.y=0.1;
+y.scaling.z=0.1;
+y.rotation.y=-6;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/hanginggarden77.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-30;
+y.position.y=0;
+y.position.z=25;
+y.scaling.x=3.5;
+y.scaling.y=3;
+y.scaling.z=3;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/hanginggarden33.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-30;
+y.position.y=0;
+y.position.z=3;
+y.scaling.x=3;
+y.scaling.y=3;
+y.scaling.z=3;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/hanginggarden44.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-30;
+y.position.y=0;
+y.position.z=-17;
+y.scaling.x=3;
+y.scaling.y=3;
+y.scaling.z=3;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/hanginggarden55.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=40;
+y.position.y=0;
+y.position.z=-17;
+y.scaling.x=3;
+y.scaling.y=3;
+y.scaling.z=3;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/hanginggarden66.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=40;
+y.position.y=0;
+y.position.z=3;
+y.scaling.x=3;
+y.scaling.y=3;
+y.scaling.z=3;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/gown1animate.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=20;
+y.position.y=1;
+y.position.z=45;
+y.scaling.x=8;
+y.scaling.y=8;
+y.scaling.z=8;
+y.rotation.y=9.5;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/gown2animate.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=17;
+y.position.y=1;
+y.position.z=4;
+y.scaling.x=10;
+y.scaling.y=10;
+y.scaling.z=10;
+y.rotation.y=11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/gown3animate.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=17;
+y.position.y=1;
+y.position.z=-10;
+y.scaling.x=10;
+y.scaling.y=10;
+y.scaling.z=10;
+y.rotation.y=11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/gown5animate.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-17;
+y.position.y=1;
+y.position.z=-10;
+y.scaling.x=7;
+y.scaling.y=8;
+y.scaling.z=7;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/gown4animate.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-17;
+y.position.y=1;
+y.position.z=8;
+y.scaling.x=7;
+y.scaling.y=7;
+y.scaling.z=7;
+y.rotation.y=-11;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/gown6animate.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-20;
+y.position.y=1;
+y.position.z=45;
+y.scaling.x=8;
+y.scaling.y=8;
+y.scaling.z=8;
+y.rotation.y=9.5;
+camera.target=y;})
+
+BABYLON.SceneLoader.ImportMesh("", "/men1.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=7;
+y.position.y=0;
+y.position.z=45;
+y.scaling.x=9;
+y.scaling.y=9;
+y.scaling.z=9;
+y.rotation.y=9.5;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/men2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-6;
+y.position.y=0;
+y.position.z=45;
+y.scaling.x=9;
+y.scaling.y=9;
+y.scaling.z=9;
+y.rotation.y=9.5;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/officedress2.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=15;
+y.position.y=0;
+y.position.z=-30;
+y.scaling.x=8;
+y.scaling.y=8;
+y.scaling.z=8;
+y.rotation.y=9.5;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/officedress3.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-35;
+y.position.y=7;
+y.position.z=-35;
+y.scaling.x=5;
+y.scaling.y=3.7;
+y.scaling.z=5;
+y.rotation.y=9.5;
+camera.target=y;})
+BABYLON.SceneLoader.ImportMesh("", "/officedress5.glb", "", scene, function (newMeshes) {
+
+var y=newMeshes[0];
+y.position.x=-15;
+y.position.y=0;
+y.position.z=-30;
+y.scaling.x=6;
+y.scaling.y=7;
+y.scaling.z=6;
+y.rotation.y=-9.5;
+camera.target=y;})
+scene.debugLayer.show({
+        embedMode: true,
+    });
+        scene.useRightHandedSystem = true;
+        return scene;
+      };
+
+      const scene = createScene(); 
+
+      // Register a render loop to repeatedly render the sceneimage.png
+      engine.runRenderLoop(function () {
+        scene.render();
+      });
+
+      // Watch for browser/canvas resize events
+      window.addEventListener("resize", function () {
+        engine.resize();
+      });
+    </script>
+  </body>
+</html>
